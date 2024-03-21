@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    internal class Courant
+    public class Courant
     {
+        public string Numero { get; set; }
+        public double Sold { get; private set; }
+        public double LigneDeCredit {  get; set; }
+        public Personne Titulaire { get; set; }
+
+        public void Retrait(double Montant)
+        {
+            Console.WriteLine();
+        }
+
+        public void Depot(double Montant)
+        {
+            Console.WriteLine();
+        }
+
     }
 }
