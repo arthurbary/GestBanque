@@ -1,2 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+using Models;
+
+Personne doeJhon = new Personne();
+{
+    Nom = "Doe",
+
+}
