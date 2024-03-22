@@ -29,6 +29,20 @@ namespace Models
         {
             _comptesCourant.Remove(numero);
         }
+
+        public double AvoirDesComptes(Personne titulaire)
+        {
+            double avoir = 0;
+            foreach (var compte in _comptesCourant)
+            {
+                Personne titulaireCompte = compte.Value.Titulaire;
+                if(titulaire == titulaireCompte)
+                {
+                        avoir += avoir + compte.Value.Sold;
+                }
+            }
+            return avoir;
+        }
     }
 }
 
