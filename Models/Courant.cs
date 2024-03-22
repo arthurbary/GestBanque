@@ -32,15 +32,17 @@ namespace Models
 
         public void Retrait(double montant)
         {
-            if(montant > Sold) {
+            if(Sold - montant > -LigneDeCredit) {
                 Console.WriteLine($"Le montant {montant} est superdieur avotre solde({Sold})");
-            } else if (montant < 1) {
-                Console.WriteLine($"Le montant {montant} n'est pas valid");
-            } else
-            {
-                Sold -= montant;
-                Console.WriteLine($"Le montant {montant} a ete retiré sur votre compte ${Sold}");
+                return;
             }
+            
+            if (montant < 1) {
+                Console.WriteLine($"Le montant {montant} n'est pas valid");
+                return;
+            }
+            Sold -= montant;
+            Console.WriteLine($"Le montant {montant} a ete retiré sur votre compte ${Sold}");
         }
 
         public void Depot(double montant)
@@ -48,12 +50,10 @@ namespace Models
             if (montant < 1)
             {
                 Console.WriteLine($"Le montant {montant} n'est pas valid");
+                return;
             }
-            else
-            {
-                Sold += montant;
-                Console.WriteLine($"Le montant {montant} a ete versé sur votre compte ${Sold}");
-            }
+            Sold += montant;
+            Console.WriteLine($"Le montant {montant} a ete versé sur votre compte ${Sold}");
         }
     }
 }
