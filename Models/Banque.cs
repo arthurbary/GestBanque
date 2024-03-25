@@ -38,7 +38,7 @@ namespace Models
                 Personne titulaireCompte = compte.Value.Titulaire;
                 if(titulaire == titulaireCompte)
                 {
-                        avoir += avoir + compte.Value.Sold;
+                        avoir += compte.Value.Sold;
                 }
             }
             return avoir;
