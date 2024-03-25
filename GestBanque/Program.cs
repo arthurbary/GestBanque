@@ -51,10 +51,15 @@ bbl.Ajouter(compte1);
 bbl.Ajouter(compte2);
 bbl.Ajouter(compte3);
 
-Console.WriteLine(bbl.AvoirDesComptes(doeJane));
+Epargne cE = new Epargne()
+{ 
+    Titulaire = doeJane,
+    Numero = "US1234-5678-5678"
+};
 
-Celcius c = new Celcius();
-c.Temperature = 12;
-Fahrenheit f = c;
-Console.WriteLine(f.Temperature);
-Console.WriteLine(compte3.Sold);
+cE.Depot(1000);
+cE.Retrait(10);
+
+
+Console.WriteLine(bbl.AvoirDesComptes(doeJane));
+Console.WriteLine(cE.DateDernierRetrai);

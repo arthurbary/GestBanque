@@ -8,11 +8,15 @@ namespace Models
 {
     public class Epargne : Compte
     {
-        DateTime DateDernierRetrai { get; set; }
+        public DateTime DateDernierRetrai { get; set; }
         public override void Retrait(double montant)
         {
+            double ancientSold = Solde;
             base.Retrait(montant);
-            DateDernierRetrai = DateTime.Now;
+            if(Solde != ancientSold)
+            {
+                DateDernierRetrai = DateTime.Now;
+            }
         }
     }
 }
