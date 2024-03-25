@@ -10,9 +10,9 @@ namespace Models
     {
         public string Nom { get; set; }
 
-        private Dictionary<string, Courant> _comptesCourant = new Dictionary<string, Courant>();
+        private Dictionary<string, Compte> _comptesCourant = new Dictionary<string, Compte>();
 
-        public Courant this[string numero]
+        public Compte this[string numero]
         {
             get
             {
@@ -20,7 +20,7 @@ namespace Models
             }
         }
 
-        public void Ajouter(Courant compte)
+        public void Ajouter(Compte compte)
         {
             _comptesCourant.Add(compte.Numero, compte);
         }
