@@ -10,23 +10,13 @@ namespace Models
     {
         public string Numero { get; set; }
         public Personne Titulaire { get; set; }
-        public double Sold { get; private set; }
+        public double Solde { get; private set; }
         public static double operator +(double amount, Compte compte)
         {
-            return (amount < 0 ? 0 : amount) + (compte.Sold < 0 ? 0 : compte.Sold);
+            return (amount < 0 ? 0 : amount) + (compte.Solde < 0 ? 0 : compte.Solde);
         }
 
-        public virtual void Retrait(double montant)
-        {
-            
-            if (montant < 0)
-            {
-                Console.WriteLine($"Le montant {montant} n'est pas valid");
-                return;
-            }
-            Sold -= montant;
-            Console.WriteLine($"Le montant {montant} a ete retiré");
-        }
+        
 
         public void Depot(double montant)
         {
@@ -35,8 +25,30 @@ namespace Models
                 Console.WriteLine($"Le montant {montant} n'est pas valid");
                 return;
             }
-            Sold += montant;
+            Solde += montant;
             Console.WriteLine($"Le montant {montant} a ete versé sur votre compte ${Sold}");
+        }
+
+        
+        public virtual void Retrait(double montant)
+        {
+            Retrait(montant, 0D);
+        }
+        protected void Retrait(double montant, double ligneDeCredit)
+        {
+            if (montant <= 0)
+            {
+                Console.WriteLine("Retrait d'un montant négatif impossible"); // => Erreur : Exception
+                return;
+            }
+
+            if (Solde - montant < -ligneDeCredit)
+            {
+                Console.WriteLine("Solde insuffisant"); // => Erreur : Exception
+                return;
+            }
+
+            Solde -= montant;
         }
     }
 }
