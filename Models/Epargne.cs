@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class Epargne : Courant
+    public class Epargne : Compte
     {
         DateTime DateDernierRetrai { get; set; }
         public override void Retrait(double montant)
