@@ -30,6 +30,11 @@ namespace Models
             }
         }
 
+        public static double operator +(double amount, Courant compte)
+        {
+            return (amount < 0 ? 0 : amount) + (compte.Sold < 0 ? 0 : compte.Sold);
+        }
+
         public void Retrait(double montant)
         {
             if(Sold - montant > -LigneDeCredit) {
