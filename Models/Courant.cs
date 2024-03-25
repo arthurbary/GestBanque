@@ -35,7 +35,7 @@ namespace Models
             return (amount < 0 ? 0 : amount) + (compte.Sold < 0 ? 0 : compte.Sold);
         }
 
-        public void Retrait(double montant)
+        public virtual void Retrait(double montant)
         {
             if(Sold - montant > -LigneDeCredit) {
                 Console.WriteLine($"Le montant {montant} est superdieur avotre solde({Sold})");
@@ -52,7 +52,7 @@ namespace Models
 
         public void Depot(double montant)
         {
-            if (montant < 1)
+            if (montant < 0)
             {
                 Console.WriteLine($"Le montant {montant} n'est pas valid");
                 return;
