@@ -32,13 +32,13 @@ namespace Models
 
         public double AvoirDesComptes(Personne titulaire)
         {
-            double avoir = 0;
-            foreach (var compte in _comptesCourant)
+            double avoir = 0D;
+            //va directement chercher la value d'une paire key/value
+            foreach (var compte in _comptesCourant.Values)
             {
-                Personne titulaireCompte = compte.Value.Titulaire;
-                if(titulaire == titulaireCompte)
+                if(titulaire == compte.Titulaire)
                 {
-                        avoir += compte.Value.Sold;
+                        avoir = avoir + compte;
                 }
             }
             return avoir;

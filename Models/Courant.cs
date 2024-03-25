@@ -30,13 +30,9 @@ namespace Models
             }
         }
 
-        public static double operator +( Courant a, Courant b )
+        public static double operator +(double amount, Courant compte)
         {
-            if(b.Sold > 0)
-            {
-                return a.Sold += b.Sold;
-            }
-            return a.Sold;
+            return (amount < 0 ? 0 : amount) + (compte.Sold < 0 ? 0 : compte.Sold);
         }
 
         public void Retrait(double montant)
