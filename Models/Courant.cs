@@ -27,7 +27,7 @@ namespace Models
         }
         public override void Retrait(double montant)
         {
-            if (Sold - montant > -LigneDeCredit)
+            if (Sold - montant < -LigneDeCredit)
             {
                 Console.WriteLine($"Le montant {montant} est superieur avotre solde({Sold})");
                 return;
