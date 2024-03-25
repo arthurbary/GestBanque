@@ -41,17 +41,25 @@ compte2.Depot(99.99);
 Courant compte3 = new Courant()
 {
     Titulaire = doeJane,
-    Numero = "US1234-5678-3456"
+    Numero = "US1234-5678-4567"
 };
-compte3.Depot(-99.99);
+compte3.Depot(9.99);
+compte3.Retrait(19.00);
 
 bbl.Ajouter(compte);
 bbl.Ajouter(compte1);
 bbl.Ajouter(compte2);
+bbl.Ajouter(compte3);
+
+Epargne cE = new Epargne()
+{ 
+    Titulaire = doeJane,
+    Numero = "US1234-5678-5678"
+};
+
+cE.Depot(1000);
+cE.Retrait(10);
+
 
 Console.WriteLine(bbl.AvoirDesComptes(doeJane));
-
-Celcius c = new Celcius();
-c.Temperature = 12;
-Fahrenheit f = c;
-Console.WriteLine(f.Temperature);
+Console.WriteLine(cE.DateDernierRetrai);
