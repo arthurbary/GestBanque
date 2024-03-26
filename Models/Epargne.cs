@@ -18,5 +18,10 @@ namespace Models
                 DateDernierRetrai = DateTime.Now;
             }
         }
+
+        protected override double CalculInteret()
+        {
+            return Solde * 0.045;
+        }
     }
 }

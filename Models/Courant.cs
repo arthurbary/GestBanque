@@ -29,5 +29,17 @@ namespace Models
         {
             Retrait(montant, 0D);
         }
+        protected override double CalculInteret()
+        {
+            if(Solde > 0)
+            {
+                return Solde * 0.03;
+            }
+            if (Solde < 0)
+            {
+                return Solde * 0.975;
+            }
+            return Solde;
+        }
     }
 }
