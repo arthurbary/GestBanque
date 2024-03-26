@@ -34,7 +34,7 @@ namespace Models
         {
             double avoir = 0D;
             //va directement chercher la value d'une paire key/value
-            foreach (var compte in _comptesCourant.Values)
+            foreach (Compte compte in _comptesCourant.Values)
             {
                 if(titulaire == compte.Titulaire)
                 {
