@@ -8,6 +8,15 @@ namespace Models
 {
     public class Epargne : Compte
     {
+        public Epargne(string Numero, Personne Titulaire) : base(Numero, Titulaire)
+        {
+        }
+
+        public Epargne(string Numero, Personne Titulaire, double solde, DateTime dernierRetrait) : base(Numero, Titulaire, solde)
+        {
+            DateDernierRetrai = dernierRetrait;
+        }
+
         public DateTime DateDernierRetrai { get; set; }
         public override void Retrait(double montant)
         {

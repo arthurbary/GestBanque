@@ -8,8 +8,8 @@ namespace Models
 {
     public abstract class Compte: ICustomer, IBanker
     {
-        public string Numero { get; set; }
-        public Personne Titulaire { get; set; }
+        public string Numero { get; private set; }
+        public Personne Titulaire { get; private set; }
         public double Solde { get; private set; }
 
         public Compte(string Numero, Personne Titulaire)
@@ -18,9 +18,9 @@ namespace Models
             this.Titulaire = Titulaire;
         }
 
-        public Compte(string Numero, Personne Titulaire, double Solde) : this(Numero, Titulaire)
+        public Compte(string Numero, Personne Titulaire, double solde) : this(Numero, Titulaire)
         {
-            this.Solde = Solde;
+            Solde = solde;
         }
         public static double operator +(double amount, Compte compte)
         {

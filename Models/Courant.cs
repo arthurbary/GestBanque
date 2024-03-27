@@ -14,9 +14,13 @@ namespace Models
         public Courant(string Numero, Personne Titulaire) : base(Numero, Titulaire)
         {
         }
-        public Courant(string Numero, Personne Titulaire, double ligneDeCredit) : base(Numero, Titulaire)
+
+        public Courant(string Numero, Personne Titulaire, double solde) : base(Numero, Titulaire)
         {
-            this._ligneDeCredit = ligneDeCredit;
+        }
+        public Courant(string Numero, double ligneDeCredit, Personne Titulaire) : base(Numero, Titulaire)
+        {
+            _ligneDeCredit = ligneDeCredit;
         }
 
         public double LigneDeCredit {  get
