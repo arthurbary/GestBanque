@@ -1,0 +1,53 @@
+dot new sln
+dot new console -0 projetName
+
+assembly => resulta de la compilation (build)
+
+Avantage de la library de class:
+ -toutes les class sont accesible dans tous le projet ou elle est installer tel que les class implimenter (ex les class string, int ect...)
+
+creation bibliotheque de class /!\ apres le project console
+//cree la bibliotheque
+dotnet new classlib -o Models
+//rajoute la  bibliotheque a la solution ( peut aussi rajouter un projet ou autre elements)
+dotnet sln add .\Models
+//Pour ajouter des package (nugette) ou rajouter reference
+dotnet add .\ProjectName reference .\Models
+dotnet build
+
+On peut le faire via VS en rajoutant un projet
+(clique doit sur la solution ajouter>porjet)
+choisir l'option classLibrary dans la liste de type de projet
+
+On va connecter le projet a via le fichier depenbdance (icone avec 4 petits carré)
+
+
+niveau d'accessiblité
+ une niveau d'acces ne peut pas courcicuiter l'autre
+
+
+
+namespace Models
+{
+    public class Personne
+    {
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public DateTime DateNaiss { get; set; }
+        public virtual string doSomething()
+        {
+            return "Hello 1";
+        }
+    }
+
+    public class Client : Personne
+    {
+        public new virtual string doSomething()
+        {
+            return "Hello 2";
+        }
+        string test = "test";
+    }
+}
+
+methode d'extention -> utilise le "this" avant le type et completer les methode d'un class deja declarer isPrime(this int source)
