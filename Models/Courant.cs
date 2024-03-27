@@ -10,6 +10,15 @@ namespace Models
     public class Courant : Compte
     {        
         private double _ligneDeCredit;
+
+        public Courant(string Numero, Personne Titulaire) : base(Numero, Titulaire)
+        {
+        }
+        public Courant(string Numero, Personne Titulaire, double ligneDeCredit) : base(Numero, Titulaire)
+        {
+            this._ligneDeCredit = ligneDeCredit;
+        }
+
         public double LigneDeCredit {  get
             {
                 return _ligneDeCredit;
