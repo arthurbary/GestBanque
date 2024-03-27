@@ -11,6 +11,17 @@ namespace Models
         public string Numero { get; set; }
         public Personne Titulaire { get; set; }
         public double Solde { get; private set; }
+
+        public Compte(string Numero, Personne Titulaire)
+        {
+            this.Numero = Numero;
+            this.Titulaire = Titulaire;
+        }
+
+        public Compte(string Numero, Personne Titulaire, double Solde) : this(Numero, Titulaire)
+        {
+            this.Solde = Solde;
+        }
         public static double operator +(double amount, Compte compte)
         {
             return (amount < 0 ? 0 : amount) + (compte.Solde < 0 ? 0 : compte.Solde);
