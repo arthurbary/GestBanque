@@ -51,3 +51,6 @@ namespace Models
 }
 
 methode d'extention -> utilise le "this" avant le type et completer les methode d'un class deja declarer isPrime(this int source)
+
+Constructeur ne s'herite pas mais quand il sont par defaut il va chercher le constructeur parents, si le constructeur parent a des parametre il faut qu'il les parent les passent.
+Check les constucteur primaire
