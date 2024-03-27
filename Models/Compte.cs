@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public abstract class Compte
+    public abstract class Compte: ICustomer, IBanker
     {
         public string Numero { get; set; }
         public Personne Titulaire { get; set; }
