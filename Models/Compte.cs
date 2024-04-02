@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public abstract class Compte: ICustomer, IBanker
+    public abstract class Compte : ICustomer, IBanker
     {
         public string Numero { get; private set; }
         public Personne Titulaire { get; private set; }
         public double Solde { get; private set; }
+
+        public event PassageEnNegatifDelegate PassageEnNegatifEvent;
+        
+        public static double operator +(double amount, Compte compte)
+        {
+            return (amount < 0 ? 0 : amount) + (compte.Solde < 0 ? 0 : compte.Solde);
+        }
 
         public Compte(string Numero, Personne Titulaire)
         {
@@ -21,10 +28,6 @@ namespace Models
         public Compte(string Numero, Personne Titulaire, double solde) : this(Numero, Titulaire)
         {
             Solde = solde;
-        }
-        public static double operator +(double amount, Compte compte)
-        {
-            return (amount < 0 ? 0 : amount) + (compte.Solde < 0 ? 0 : compte.Solde);
         }
         public void Depot(double montant)
         {
@@ -53,9 +56,16 @@ namespace Models
 
         protected abstract double CalculInteret();
 
-        public void AppliquerInteret() 
-        { 
-            Solde += CalculInteret(); 
+        public void AppliquerInteret()
+        {
+            Solde += CalculInteret();
+        }
+
+        //rend le delegate passable au enfant
+        protected void RaisePassageEnNegatifEvent()
+        {
+            PassageEnNegatifDelegate? passageEnNegatifEvent = PassageEnNegatifEvent;
+            passageEnNegatifEvent?.Invoke(this);
         }
     }
 }

@@ -27,11 +27,15 @@ namespace Models
         public void Ajouter(Compte compte)
         {
             _comptesCourant.Add(compte.Numero, compte);
+            compte.PassageEnNegatifEvent += PassageEnNegatifAction;
         }
 
         public void Supprimer(string numero)
         {
+            if (!_comptesCourant.ContainsKey(numero))
+                return;
             _comptesCourant.Remove(numero);
+            Compte compte = this[numero];
         }
 
         public double AvoirDesComptes(Personne titulaire)
@@ -46,6 +50,10 @@ namespace Models
                 }
             }
             return avoir;
+        }
+        private void PassageEnNegatifAction(Compte compte)
+        {
+            Console.WriteLine($"Le compte numéro '{compte.Numero}' vient de passer en négatif.");
         }
     }
 }
