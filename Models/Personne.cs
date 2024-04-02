@@ -12,4 +12,5 @@ namespace Models
         public string Prenom { get; set; }
         public DateTime DateNaiss { get; set; }
     }
+
 }
