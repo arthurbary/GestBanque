@@ -8,9 +8,20 @@ namespace Models
 {
     public abstract class Compte: ICustomer, IBanker
     {
-        public string Numero { get; set; }
-        public Personne Titulaire { get; set; }
+        public string Numero { get; private set; }
+        public Personne Titulaire { get; private set; }
         public double Solde { get; private set; }
+
+        public Compte(string Numero, Personne Titulaire)
+        {
+            this.Numero = Numero;
+            this.Titulaire = Titulaire;
+        }
+
+        public Compte(string Numero, Personne Titulaire, double solde) : this(Numero, Titulaire)
+        {
+            Solde = solde;
+        }
         public static double operator +(double amount, Compte compte)
         {
             return (amount < 0 ? 0 : amount) + (compte.Solde < 0 ? 0 : compte.Solde);
@@ -19,8 +30,7 @@ namespace Models
         {
             if (montant <= 0)
             {
-                Console.WriteLine("Dépot d'un montant négatif impossible"); // => Erreur : Exception
-                return;
+                throw new ArgumentOutOfRangeException("Montant inférieur à 0");
             }
             Solde += montant;
         }
@@ -32,13 +42,11 @@ namespace Models
         {
             if (montant <= 0)
             {
-                Console.WriteLine("Retrait d'un montant négatif impossible"); // => Erreur : Exception
-                return;
+                throw new ArgumentOutOfRangeException("Retrait d'un montant négatif impossible");
             }
             if (Solde - montant < -ligneDeCredit)
             {
-                Console.WriteLine("Solde insuffisant"); // => Erreur : Exception
-                return;
+                throw new SoldeInsuffisantException("Sold insufisant");
             }
             Solde -= montant;
         }
