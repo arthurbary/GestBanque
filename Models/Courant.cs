@@ -31,7 +31,7 @@ namespace Models
             {
                 if( _ligneDeCredit < 0 )
                 {
-                    Console.WriteLine("La ligne de credit doit etre un chiffre positif ou zéro");
+                    throw new InvalidOperationException("La ligne de credit doit etre un chiffre positif ou zéro");
                 } else
                 {
                     _ligneDeCredit = value;

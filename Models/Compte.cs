@@ -30,8 +30,7 @@ namespace Models
         {
             if (montant <= 0)
             {
-                Console.WriteLine("Dépot d'un montant négatif impossible"); // => Erreur : Exception
-                return;
+                throw new ArgumentOutOfRangeException("Montant inférieur à 0");
             }
             Solde += montant;
         }
@@ -43,13 +42,11 @@ namespace Models
         {
             if (montant <= 0)
             {
-                Console.WriteLine("Retrait d'un montant négatif impossible"); // => Erreur : Exception
-                return;
+                throw new ArgumentOutOfRangeException("Retrait d'un montant négatif impossible");
             }
             if (Solde - montant < -ligneDeCredit)
             {
-                Console.WriteLine("Solde insuffisant"); // => Erreur : Exception
-                return;
+                throw new SoldeInsuffisantException("Sold insufisant");
             }
             Solde -= montant;
         }
