@@ -55,6 +55,13 @@ namespace Models
         {
             Console.WriteLine($"Le compte numéro '{compte.Numero}' vient de passer en négatif.");
         }
+
+        public int testCountComptes()
+        {
+            return _comptesCourant.Count;
+        }
+
+
     }
 }
 
