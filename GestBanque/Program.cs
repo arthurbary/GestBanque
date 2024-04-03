@@ -20,9 +20,11 @@ compte1.Depot(1000);
 Courant compte2 = new Courant("US1234-5678-3456", doeJane);
 compte2.Depot(99.99);
 
-Courant compte3 = new Courant("US1234-5678-4567", doeJane);
+Courant compte3 = new Courant("US1234-5678-4567",50, doeJane);
 compte3.Depot(9.99);
 compte3.Retrait(1);
+compte3.LigneDeCredit = -200;
+
 
 
 bbl.Ajouter(compte);

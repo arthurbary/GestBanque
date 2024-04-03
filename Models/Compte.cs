@@ -67,5 +67,10 @@ namespace Models
             PassageEnNegatifDelegate? passageEnNegatifEvent = PassageEnNegatifEvent;
             passageEnNegatifEvent?.Invoke(this);
         }
+
+        public void DepotTest(double montant)
+        {
+            Solde += montant;
+        }
     }
 }

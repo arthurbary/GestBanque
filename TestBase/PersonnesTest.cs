@@ -19,7 +19,7 @@ namespace TestBase
         [InlineData("£ù%§^", "Jane", "03-04-1980 11:20:48")]
         [InlineData("Doe", "µl1sse;", "03-04-1980 11:20:48")]
 
-        public void AjouterCompteCourantTest(string nom, string prenom, string naiss)
+        public void Test_Personne(string nom, string prenom, string naiss)
         {
             Personne personne = new Personne(nom, prenom, DateTime.Parse(naiss));
         }

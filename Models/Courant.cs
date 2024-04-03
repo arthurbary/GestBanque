@@ -20,21 +20,21 @@ namespace Models
         }
         public Courant(string Numero, double ligneDeCredit, Personne Titulaire) : base(Numero, Titulaire)
         {
-            _ligneDeCredit = ligneDeCredit;
+            LigneDeCredit = ligneDeCredit;
         }
 
         public double LigneDeCredit {  get
             {
-                return _ligneDeCredit;
+                return LigneDeCredit;
             }
             set 
             {
-                if( _ligneDeCredit < 0 )
+                if( value < 0 )
                 {
                     throw new InvalidOperationException("La ligne de credit doit etre un chiffre positif ou zéro");
                 } else
                 {
-                    _ligneDeCredit = value;
+                    LigneDeCredit = value;
                 }
             }
         }
