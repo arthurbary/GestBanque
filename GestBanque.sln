@@ -4,8 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestBanque", "GestBanque\GestBanque.csproj", "{C71B04DC-E157-44EF-AD46-1037BABE5971}"
+	ProjectSection(ProjectDependencies) = postProject
+		{061F7C3F-0AFE-400B-B0FE-ADA50484ED02} = {061F7C3F-0AFE-400B-B0FE-ADA50484ED02}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{1B48E10F-2203-4F76-A6AD-6A8527FC1969}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBase", "TestBase\TestBase.csproj", "{061F7C3F-0AFE-400B-B0FE-ADA50484ED02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{1B48E10F-2203-4F76-A6AD-6A8527FC1969}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B48E10F-2203-4F76-A6AD-6A8527FC1969}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B48E10F-2203-4F76-A6AD-6A8527FC1969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{061F7C3F-0AFE-400B-B0FE-ADA50484ED02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{061F7C3F-0AFE-400B-B0FE-ADA50484ED02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{061F7C3F-0AFE-400B-B0FE-ADA50484ED02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{061F7C3F-0AFE-400B-B0FE-ADA50484ED02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

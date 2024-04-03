@@ -1,5 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
+
 using Models;
+
+Console.WriteLine(DateTime.Parse("03-04-2024 11:20:48"));
 
 Banque bbl = new Banque("bbl");
 
